@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Finca from './finca';
 
-const ROOT_URL = "http://ganasoft-api.herokuapp.com/";
+const ROOT_URL = "https://ganasoft-api.herokuapp.com/";
 
 class App extends Component {
   constructor(props) {
