@@ -6,6 +6,8 @@
  */
 import React, {Component} from 'react';
 import axios from 'axios';
+
+import Finca from './finca';
 const ROOT_URL = "https://ganasoft-api.herokuapp.com/";
 
 class Fincas extends Component {
@@ -30,7 +32,7 @@ class Fincas extends Component {
     }
 
     deleteFinca(finca) {
-        axios.delete(ROOT_URL+"farms/"+finca._id).then(response => {
+        axios.delete(ROOT_URL + "farms/" + finca._id).then(response => {
             console.log(response);
             console.log(finca);
             this.getFincas();
@@ -45,31 +47,13 @@ class Fincas extends Component {
 
     render() {
         return (
-            <div>
-                {this.state.fincas.map((finca, index)=>
-                    <div key={index} className="panel panel-info col-md-3">
-                        <div className="panel-heading">
-                            <h3 className="panel-title">{finca.name}</h3>
-                        </div>
-                        <div className="col-md-4">
-                            <img alt="User Pic" src="https://i.ytimg.com/vi/KHS-s_m5GRQ/hqdefault.jpg"
-                                 className="img-circle img-responsive"/>
-                        </div>
-                        <div className="col-md-9">
-                            <div className=" col-md-9 col-lg-9 ">
-                                <table className="table table-user-information">
-                                    <tbody>
-                                    <tr>
-                                        <button onClick={this.deleteFinca(finca).bind(this)}>Borrar</button>
-                                    </tr>
+            <div className="container-fluid col-md-10">
+                <div className="row placeholders">
+                    {this.state.fincas.map((finca, index)=>
+                    <Finca key={index} finca={finca}/>
+                    )}
+                </div>
 
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>)}
             </div>
 
         );

@@ -3,48 +3,84 @@
  */
 import React, {Component} from 'react';
 import axios from 'axios';
-const ROOT_URL = "http://localhost:5030";
+const ROOT_URL = "https://ganasoft-api.herokuapp.com/";
 
 class Animal extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            animales: [],
+            nombre: '',
+            codigo: '',
+            nota: ''
+        }
+    }
+
+    componentDidMount() {
+        console.log("hola");
+        this.getAnimales();
+    }
+    getConfig() {
+        var config = {
+            headers: {'farm': this.props.params.idfinca}
+        };
+        return config
+    }
+
+    getPath() {
+        return "/" + this.props.params.idfinca + "/animales"
+    }
+
+    getAnimales() {
+
+        axios.get(ROOT_URL + "animals/", this.getConfig())
+            .then(response => {
+                this.setState({
+                    animales: response.data
+                })
+            })
+    }
 
     render() {
         return (
-            <div className="panel panel-info col-md-3">
-                <div className="panel-heading">
-                    <h3 className="panel-title">{this.props.animal.number}</h3>
-                </div>
-                <div className="col-md-4">
-                    <img alt="User Pic" src={this.props.animal.foto}
-                         className="img-circle img-responsive"/>
-                </div>
-                <div className="col-md-9">
-                    <div className=" col-md-9 col-lg-9 ">
-                        <table className="table table-user-information">
-                            <tbody>
-                            <tr>
-                                <td>Finca: </td>
-                                <td> Hola</td>
-                            </tr>
-                            <tr>
-                                <td>Especie: </td>
-                                <td> {this.props.animal.especie}</td>
-                            </tr>
-                            <tr>
-                                <td>Raza: </td>
-                                <td>{this.props.animal.raza}</td>
-                            </tr>
+            <div>
+                {this.state.animales.map((animal, index)=>
+                    <div key ={index} className="panel panel-info col-md-3">
+                        <div className="panel-heading">
+                            <h3 className="panel-title">{animal.number}</h3>
+                        </div>
+                        <div className="col-md-4">
+                            <img alt="User Pic" src={animal.foto}
+                                 className="img-circle img-responsive"/>
+                        </div>
+                        <div className="col-md-9">
+                            <div className=" col-md-9 col-lg-9 ">
+                                <table className="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>Especie:</td>
+                                        <td> {animal.especie}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Raza:</td>
+                                        <td>{animal.raza}</td>
+                                    </tr>
 
-                            <tr>
-                                <td>Genero: </td>
-                                <td>{this.props.animal.sexo}</td>
-                            </tr>
+                                    <tr>
+                                        <td>Genero:</td>
+                                        <td>{animal.sexo}</td>
+                                    </tr>
 
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-
+                )}
             </div>
+
         );
     }
 

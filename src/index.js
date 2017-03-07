@@ -10,10 +10,8 @@ import Animal from './components/animal';
 render((
     <Router history={hashHistory}>
         <Route path="/" component={App}>
-            <Route path="/fincas" component={Fincas}>
-                <Route path="/fincas/:idfinca" component={Finca}/>
-            </Route>
-            <Route path="/animal" component={Animal}/>
+            <Route path="/fincas" component={Fincas}/>
+            <Route path="/:idfinca/animales" component={Animal}/>
         </Route>
     </Router>
 ), document.getElementById('app'))
