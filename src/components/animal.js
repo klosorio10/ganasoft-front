@@ -59,6 +59,10 @@ class Animal extends Component {
                                 <table className="table table-user-information">
                                     <tbody>
                                     <tr>
+                                        <td>Id:</td>
+                                        <td> {animal.number}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Especie:</td>
                                         <td> {animal.especie}</td>
                                     </tr>
