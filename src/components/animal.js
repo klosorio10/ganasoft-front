@@ -48,7 +48,7 @@ class Animal extends Component {
                 {this.state.animales.map((animal, index)=>
                     <div key ={index} className="panel panel-info col-md-3">
                         <div className="panel-heading">
-                            <h3 className="panel-title">{animal.number}</h3>
+                            <h3 className="panel-title"> ID: {animal.numero}</h3>
                         </div>
                         <div className="col-md-4">
                             <img alt="User Pic" src={animal.foto}
@@ -58,10 +58,6 @@ class Animal extends Component {
                             <div className=" col-md-9 col-lg-9 ">
                                 <table className="table table-user-information">
                                     <tbody>
-                                    <tr>
-                                        <td>Id:</td>
-                                        <td> {animal.number}</td>
-                                    </tr>
                                     <tr>
                                         <td>Especie:</td>
                                         <td> {animal.especie}</td>
