@@ -31,14 +31,7 @@ class Fincas extends Component {
             })
     }
 
-    deleteFinca(finca) {
-        axios.delete(ROOT_URL + "farms/" + finca._id).then(response => {
-            console.log(response);
-            console.log(finca);
-            this.getFincas();
-        })
 
-    }
 
     componentDidMount() {
         console.log("hola");

@@ -34,8 +34,9 @@ class Animal extends Component {
 
     getAnimales() {
 
-        axios.get(ROOT_URL + "animals/", this.getConfig())
+        axios.get(ROOT_URL + "animals?farm="+this.props.params.idfinca )
             .then(response => {
+                console.log(ROOT_URL + "animals?farm="+this.props.params.idfinca );
                 this.setState({
                     animales: response.data
                 })
