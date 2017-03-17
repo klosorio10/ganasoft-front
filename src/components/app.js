@@ -16,25 +16,6 @@ class App extends Component {
         }
     }
 
-    agregarEstudiante() {
-        axios.post(ROOT_URL + "/fincas", {
-            nombre: this.state.nombre,
-            codigo: this.state.codigo,
-            nota: this.state.nota
-        })
-            .then(response => {
-                this.getFincas();
-            })
-    }
-
-    getFincas() {
-        axios.get(ROOT_URL + "farms")
-            .then(response => {
-                this.setState({
-                    fincas: response.data
-                })
-            })
-    }
 
     componentDidMount() {
 

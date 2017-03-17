@@ -25,7 +25,7 @@ class Finca extends Component {
     }
 
     deleteFinca() {
-        axios.delete(ROOT_URL + "farms?farm=" + this.props.finca._id).then(response => {
+        axios.delete(ROOT_URL + "farms?farm=" + this.props.finca._id +"&owner="+this.props.finca.owner).then(response => {
             console.log(response);
             console.log(finca);
 
