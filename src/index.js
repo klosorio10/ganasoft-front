@@ -7,7 +7,7 @@ import Fincas from './components/fincas';
 import Animal from './components/animal';
 import Home from './components/home'
 
-
+<!-- el llamado rest que estan haciendo con router puede mejorar en terminos de seguridad si lo hacen con los metodos de meteor -->
 render((
     <Router history={hashHistory}>
         <Route path="/" component={App}>
