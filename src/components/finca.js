@@ -53,6 +53,7 @@ class Finca extends Component {
 
     render() {
         return (
+            <!-- por parte de accesibilidad seria bueno los id en los elementos que ayuden a ideintificar su contenido o procedencia -->
             <div className="col-md-4 placeholder text-center">
                 <h2>{this.props.finca.name}</h2>
                 <NavLink to={this.getPath()}>
