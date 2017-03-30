@@ -37,6 +37,7 @@ class App extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
+            <!-- se puede mejorar el aling horizontal del menu principan con logo y contenido -->
                             <NavLink to="/"className="navbar-brand">GanaSoft</NavLink>
                         </div>
                         <div className="navbar-collapse collapse">
@@ -47,6 +48,7 @@ class App extends Component {
                                 <li><a href="#">Help</a></li>
                             </ul>
                             <form className="navbar-form navbar-right">
+            <!-- No hay inidicaciones de que debe hacer el usuario, deberia ser bueno que en el momento de ver esta entreda de texto, indique instrucciones que debe hacer el usuario-->
                                 <input type="text" className="form-control" placeholder="Search..."/>
                             </form>
                         </div>
